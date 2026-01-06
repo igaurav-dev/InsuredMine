@@ -1,0 +1,29 @@
+### Health Check
+GET http://localhost:3000/
+
+### Upload Data (Ensure data.csv exists in the project root or adjust path)
+POST http://localhost:3000/upload
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="data.csv"
+Content-Type: text/csv
+
+< ./data.csv
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Search Policy by Username (John)
+GET http://localhost:3000/policy/search/John
+
+### Aggregate Policies
+GET http://localhost:3000/policy/aggregated
+
+### Schedule a Message
+POST http://localhost:3000/schedule/message
+Content-Type: application/json
+
+{
+    "message": "Test Message",
+    "day": "2026-12-28",
+    "time": "12:00"
+}
